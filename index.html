@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action='http://localhost:3000/upload' method="POST" enctype="multipart/form-data">
+        <label>Tu archivo:</label>
+        <input type="file" name="archivo" id="file"/>
+        <button>Subir</button>
+    </form>
+    <script>
+        const file = document.getElementById('file')
+        const onSubmit = async(evt)=>{
+            evt.preventDefault()
+            try {
+                const resp = await fetch('http://localhost:3000/upload',{
+                    method:'POST',
+                    body:{}
+                })
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    </script>
+</body>
+</html>
